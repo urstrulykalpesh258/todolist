@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO DO LIST</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.css" rel="stylesheet" />
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="main.js"></script>
+  </head>
+
+  <body>
+    <section class="vh-100">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col">
+            <div class="card" id="list1" style="border-radius: 0.75rem; background-color: #eff1f2">
+              <div class="card-body py-4 px-4 px-md-5">
+                <p class="h1 text-center mt-3 mb-4 pb-3 text-primary">
+                  <i class="fas fa-check-square me-1"></i> <u>My Todo-List</u>
+                </p>
+
+                <hr class="my-4" />
+                <div class="d-flex justify-content-between align-items-center my-4">
+                  <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+                    Add
+                  </button>
+                  <div class="d-flex justify-content-end align-items-center">
+                    <p class="small mb-0 me-2 text-muted">Filter</p>
+                    <select class="select" id="sortByStatus">
+                      <option value="0" selected>All</option>
+                      <option value="1">Active</option>
+                      <option value="2">Hold</option>
+                      <option value="3">Deleted</option>
+                      <option value="4">Completed</option>
+                    </select>
+                  </div>
+                </div>
+
+                <table class="table align-middle mb-0 bg-white">
+                  <thead class="bg-light">
+                    <tr>
+                      <th>SR NO</th>
+                      <th>Title</th>
+                      <th class="text-center">Status</th>
+                      <th class="text-center">Actions</th>
+                      <th class="text-center">Created Date</th>
+                    </tr>
+                  </thead>
+                  <tbody id="taskBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-outline mb-5">
+                <input
+                  type="text"
+                  id="taskTitleForm"
+                  class="form-control"
+                  data-mdb-showcounter="true"
+                  maxlength="30"
+                  required
+                />
+
+                <label class="form-label" for="form16">Title</label>
+                <div class="form-helper"></div>
+              </div>
+              <div class="row">
+                <div class="col-2">Status</div>
+                <div class="col-2">
+                  <select
+                    class="form-select form-select-sm"
+                    id="taskStatusFrom"
+                    style="width: 150px"
+                    aria-label=" Default select example"
+                  >
+                    <option value="1" selected>Active</option>
+                    <option value="2">Hold</option>
+                    <option value="3">Deleted</option>
+                    <option value="4">Completed</option>
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer mt-5">
+                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                <button type="button" id="taskSubmitBtn" dataStatus="1" dataId="0" class="btn btn-primary">Add Task</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
